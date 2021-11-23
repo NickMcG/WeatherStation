@@ -8,3 +8,9 @@ erl_crash.dump
 *.beam
 /config/*.secret.exs
 .elixir_ls/
+
+# Folder where Nerves images will be built to
+image_output
+
+# Don't check in this config file - it has network settings in it
+/sensor_hub_poncho/sensor_hub/config/target.exs
