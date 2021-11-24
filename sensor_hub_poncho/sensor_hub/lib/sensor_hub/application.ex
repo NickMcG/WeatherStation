@@ -10,14 +10,7 @@ defmodule SensorHub.Application do
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: SensorHub.Supervisor]
-
-    children =
-      [
-        # Children for all targets
-        # Starts a worker by calling: SensorHub.Worker.start_link(arg)
-        # {SensorHub.Worker, arg},
-      ] ++ children(target())
-
+    children = children(target())
     Supervisor.start_link(children, opts)
   end
 
@@ -31,10 +24,9 @@ defmodule SensorHub.Application do
   end
 
   def children(_target) do
+    # The sensors will fail on the host so let's only start them on the target devices.
     [
-      # Children for all targets except host
-      # Starts a worker by calling: SensorHub.Worker.start_link(arg)
-      # {SensorHub.Worker, arg},
+      {SHTC3, %{}}
     ]
   end
 

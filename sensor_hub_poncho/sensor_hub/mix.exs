@@ -41,6 +41,8 @@ defmodule SensorHub.MixProject do
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.11.3", targets: @all_targets},
       {:nerves_pack, "~> 0.6.0", targets: @all_targets},
+      {:shtc3, path: "../shtc3", targets: @all_targets},
+      #{:bmp280, "~> 0.2.10", targets: @all_targets}, # Commenting out for now - it doesn't support circuits_i2c v1.0.0
 
       # Dependencies for specific targets
       # NOTE: It's generally low risk and recommended to follow minor version

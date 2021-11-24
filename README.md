@@ -19,6 +19,18 @@ mix firmware
 mix firmware.burn -d ./image_output/build.img
 ```
 
+If the image has already been burnt to the device, and it is plugged in, then it can be uploaded with:
+
+```bash
+mix upload hub.local
+```
+
+Additionally, to connect to it, you can do:
+
+```bash
+ssh hub.local
+```
+
 ## Issues
 
 ### nerves_bootstrap not installed

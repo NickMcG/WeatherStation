@@ -1,5 +1,6 @@
 %{
   "beam_notify": {:hex, :beam_notify, "1.0.0", "5b8dceed76f8ac4acadf4d2915ac85b98c42bb17d7dd58253c7593d2a0deedbd", [:make, :mix], [{:elixir_make, "~> 0.6", [hex: :elixir_make, repo: "hexpm", optional: false]}], "hexpm", "a80331f6c3596918affa408d91ed634106b7ae71b3fc589432363aca68378362"},
+  "bmp280": {:hex, :bmp280, "0.2.10", "28c3bd917b198f96228134221c8efe02f0a8c245d682613c3875fe3c86cdeaf6", [:mix], [{:circuits_i2c, "~> 0.3", [hex: :circuits_i2c, repo: "hexpm", optional: false]}], "hexpm", "be456de2abdde015fd11ec1915febea262d9ce54c7c2148997507b82bdb5c076"},
   "cerlc": {:hex, :cerlc, "0.2.1", "cfe0880aa049ebcca079ca49578055aa48e7f2e9ed8ae08bd1f919d59015d03f", [:rebar3], [], "hexpm", "37f0d74a4277dcbaf64c7c47e9953dcc8060d26d86bb466ab2a86928e0181a7d"},
   "circuits_i2c": {:hex, :circuits_i2c, "1.0.0", "0b9c686ff5075f9364209fef62f6b5162eeb41a0061571f52f02637b40ca37fe", [:make, :mix], [{:elixir_make, "~> 0.6", [hex: :elixir_make, repo: "hexpm", optional: false]}], "hexpm", "f80efc49235e7819b9ea8e82c7dbd5e2523c65d8e3d4f46f89dfd43217a3f4f7"},
   "circular_buffer": {:hex, :circular_buffer, "0.4.0", "a51ea76bb03c4a38207934264bcc600018ead966728ca80da731458c5f940f8b", [:mix], [], "hexpm", "c604b19f2101982b63264e2ed90c6fb0fe502540b6af83ce95135ac9b6f2d847"},
