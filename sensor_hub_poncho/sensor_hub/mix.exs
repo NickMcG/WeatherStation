@@ -35,14 +35,13 @@ defmodule SensorHub.MixProject do
       {:shoehorn, "~> 0.7.0"},
       {:ring_logger, "~> 0.8.1"},
       {:toolshed, "~> 0.2.13"},
-      {:circuits_i2c, "~> 1.0.0"},
-      {:cerlc, "~> 0.2.1"},
 
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.11.3", targets: @all_targets},
       {:nerves_pack, "~> 0.6.0", targets: @all_targets},
       {:shtc3, path: "../shtc3", targets: @all_targets},
       #{:bmp280, "~> 0.2.10", targets: @all_targets}, # Commenting out for now - it doesn't support circuits_i2c v1.0.0
+      {:publisher, path: "../publisher", targets: @all_targets},
 
       # Dependencies for specific targets
       # NOTE: It's generally low risk and recommended to follow minor version

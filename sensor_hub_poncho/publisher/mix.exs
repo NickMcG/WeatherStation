@@ -1,9 +1,9 @@
-defmodule Shtc3.MixProject do
+defmodule Publisher.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :shtc3,
+      app: :publisher,
       version: "0.1.0",
       elixir: "~> 1.13-rc",
       start_permanent: Mix.env() == :prod,
@@ -21,8 +21,7 @@ defmodule Shtc3.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:circuits_i2c, "~> 1.0.0"},
-      {:cerlc, "~> 0.2.1"},
+      {:finch, "~> 0.6.3"},
       {:jason, "~> 1.2.2"}
     ]
   end
