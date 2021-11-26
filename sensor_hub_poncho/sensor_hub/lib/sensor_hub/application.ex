@@ -4,20 +4,16 @@ defmodule SensorHub.Application do
   @moduledoc false
 
   use Application
+  alias SensorHub.Sensor
+  require Logger
 
   @impl true
   def start(_type, _args) do
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
+    Logger.debug("Testing...")
     opts = [strategy: :one_for_one, name: SensorHub.Supervisor]
-
-    children =
-      [
-        # Children for all targets
-        # Starts a worker by calling: SensorHub.Worker.start_link(arg)
-        # {SensorHub.Worker, arg},
-      ] ++ children(target())
-
+    children = children(target())
     Supervisor.start_link(children, opts)
   end
 
@@ -31,14 +27,29 @@ defmodule SensorHub.Application do
   end
 
   def children(_target) do
+    # The sensors will fail on the host so let's only start them on the target devices.
     [
-      # Children for all targets except host
-      # Starts a worker by calling: SensorHub.Worker.start_link(arg)
-      # {SensorHub.Worker, arg},
+      {SHTC3, %{}},
+      {Finch, name: WeatherTrackerClient},
+      {
+        Publisher,
+        %{
+          sensors: sensors(),
+          weather_tracker_url: weather_tracker_url()
+        }
+      }
     ]
   end
 
   def target() do
     Application.get_env(:sensor_hub, :target)
+  end
+
+  def sensors() do
+    [Sensor.new(SHTC3)]
+  end
+
+  def weather_tracker_url do
+    Application.get_env(:sensor_hub, :weather_tracker_url)
   end
 end
